@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage[a4paper, inner=1.7cm, outer=2.7cm, top=2cm, bottom=2cm, bindingoffset=1.2cm]{geometry} 
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{index}
+\usepackage{import}
+\usepackage{epigraph}
+
+\usepackage[bookmarks=true]{hyperref}
+\usepackage{bookmark}
+
+\makeindex
+
+%new commands: 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\innerproduct}[1]{\langle#1\rangle}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\numberwithin{theorem}{subsection} % important bit
+
+\begin{document}
+\title{\Large{\textbf{Linear Algebra: Map of theorems}}}
+\author{Tan Wee Han}
+\maketitle
+
+\let\cleardoublepage\clearpage
+\tableofcontents
+
+\pagestyle{plain} %remove page headers but keep page numbers
+
+\makeatletter
+%\setlength{\@fptop}{0pt} % to put the figure on top of the page.
+\makeatother
+
+
+\section{Bilinear Forms and Inner Product}
+
+
+\subsection{Vector inequalities}
+Cauchy-Schwarz Inequality: $\norm{\innerproduct{u,v}} \leq \norm{u}\norm{v}$ \\
+Triangle Inequality: $\norm{u+v} \leq \norm{u} + \norm{v}$ \\
+Pythagoras Theorem: $\norm{u+v}^2 = \norm{u}^2 + \norm{v}^2$ \bigskip
+
+\subsection{Orthogonal and Orthonormal basis}
+\begin{theorem}
+    An orthogonal set of nonzero vectors is linearly independent.
+\end{theorem}
+
+\begin{corollary}
+    If $V$ is a finite dimensional inner product space and $n=dim V$, then any orthogonal set of nonzero vectors in $V$ is finite and contains at most n vectors.
+\end{corollary}
+
+\begin{lemma}
+    Let $ \mathcal{B} = {v_1,...,v_n}$ be an orthonormal basis of $V$. Then for any $v \in V,$ \\
+    \begin{equation*}
+        V = \innerproduct{v,v_1}v_1 + \innerproduct{v,v_2}v_2 +...+
+        \innerproduct{v,v_n}v_n
+    \end{equation*}
+\end{lemma}
+
+\begin{corollary}
+
+    Let $ \mathcal{B} = {v_1,...,v_n}$ be an orthonormal basis of $V$,
+    $T:V\rightarrow V$ a linear operator and $[T]_\mathcal{B} = (a_{ij})$ Then for all $i,j$ \\
+    \begin{equation*}
+    a_{ij}=\innerproduct{T(v_j), v_i}
+    \end{equation*}
+\end{corollary}
+
+\begin{theorem}
+    Every finite dimensional inner product space has an orthonormal basis.
+\end{theorem}
+
+
+
+\subsection{Orthogonal complement and projection}
+\begin{theorem}
+    If $W$ is a subspace of an inner product space V, then its orthogonal complement
+    $W^{\perp}$ is a subspace of $V$. In addition, we have
+    \begin{equation*}
+        W \cap W^{\perp} = \{\mathbf{0}\}
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+    If $W$ is a finite dimensional subspace of an inner product space V, then
+    \begin{equation*}
+        V = W \oplus W^{\perp} 
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+    If $\{w_1, ..., w_k\}$ is an orthonormal basis of $W$ then 
+    \begin{equation*}
+        \mathbf{proj}_W(v) = \Sigma^k_{j=1} \innerproduct{v,w_j}w_j
+    \end{equation*}
+\end{theorem}
+
+
+\begin{theorem} 
+    \textbf{Best Approximation:}
+    If $W$ a finite dimensional subspace of an inner product space $V$ and $v \in V$, then
+    \begin{equation*}
+        \norm{v-\mathbf{proj}_W(v)} < \norm{v-w}
+    \end{equation*}
+    for every vector $w$ in $W$ different from $\mathbf{proj}_W(v)$.
+\end{theorem}
+
+
+
+\begin{theorem}
+    \textbf{Least Square Solution:}
+    For any real linear system $A\mathbf{x} = \mathbf{b}$ the associated normal system 
+    \begin{equation*}
+        (A^tA)\mathbf{x} = A^t \mathbf{b}
+    \end{equation*}
+is consistent, and all its solutions are least square solutions of $A\mathbf{x} = \mathbf{b}$
+\end{theorem}
+
+
+\subsection{Adjoint of linear operator}
+
+
+
+
+\end{document}

@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[a4paper, inner=1.7cm, outer=2.7cm, top=2cm, bottom=2cm, bindingoffset=1.2cm]{geometry} 
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{index}
+\usepackage{import}
+\usepackage{epigraph}
+\makeindex
+
+%new commands: 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\innerproduct}[1]{\langle#1\rangle}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+\title{\Large{\textbf{Linear Algebra: Map of theorems}}}
+\author{Tan Wee Han}
+\maketitle
+
+\let\cleardoublepage\clearpage
+\tableofcontents
+
+\pagestyle{plain} %remove page headers but keep page numbers
+
+\makeatletter
+%\setlength{\@fptop}{0pt} % to put the figure on top of the page.
+\makeatother
+
+
+\section{Bilinear Forms and Inner Product}
+Cauchy-Schwarz Inequality: $\norm{\innerproduct{u,v}} \leq \norm{u}\norm{v}$ \\
+Triangle Inequality: $\norm{u+v} \leq \norm{u} + \norm{v}$ \\
+Pythagoras Theorem: $\norm{u+v}^2 = \norm{u}^2 + \norm{v}^2$ \bigskip
+
+
+\noindent 
+
+\begin{theorem}
+    Let $f$ be a function whose derivative exists in every point, then $f$ is 
+    a continuous function.
+\end{theorem}
+
+\section{Test}
+
+\begin{theorem}
+    Let $f$ be a function whose derivative exists in every point, then $f$ is 
+    a continuous function.
+\end{theorem}
+
+
+
+
+\end{document}

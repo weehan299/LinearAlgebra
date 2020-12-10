@@ -165,6 +165,85 @@ is consistent, and all its solutions are least square solutions of $A\mathbf{x} 
     \end{flalign*}
 \end{theorem}
 
+\subsection{Self-adjoint and Normal Operator}
+Main motivation for this section is to find out under what conditions does $V$ have an
+orthonomal basis of eigenvectors for $T$.
+
+\begin{definition}
+    A linear operator $T$ on a finite dimensional inner product space V is called
+    $\textbf{self-adjoint}$ if $T=T^*$, i.e. it satisfies the equation:
+    \begin{equation*}
+        \innerproduct{T(u),v} = \innerproduct{u,T(v)}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}
+    (p. 312)
+    A self-adjoint linear operator $T$ on a finite dimensional inner product space V.Then
+    all eigenvalues of $T$ is real. And the eigenvectors associated with the distinct
+    eigenvalues are orthogonal.
+\end{theorem}
+
+\begin{theorem}
+    (p. 313)
+    On a finite dimensional inner product space of positive dimension, every self-adjoint
+    operator has at least one eigenvalue which also means it has at least one eigenvector.\\
+
+    (note proof of this in complex vector space do not require $T$ to be self-adjoint, but in
+    real vector space it does)
+\end{theorem}
+
+\begin{lemma}\label{lem1}
+    Let $V$ be a finite dimensional inner product space. Let $T:V
+    \rightarrow V$ be any linear operator. Suppose $W$ is a subspace of $V$ which is
+    invariant under T. Then $W^\perp$ is invariant under $T^*$
+\end{lemma}
+
+\begin{theorem}
+    Let $V$ be a finite dimensional inner product space (complex or real). Let $T:V
+    \rightarrow V$ be a self adjoint linear operator. $T$ is orthgonally diagonalizable if
+    and only if it is self-adjoint. \\
+    (proof uses Lemma \ref{lem1})
+\end{theorem}
+
+\begin{corollary}
+    Let $A$ be an $n \times n$ Hermitian matrix. Then there is a unitary matrix $P$ such
+    that $P^{-1}AP$ is diagonal. (i.e. $A$ is unitariliy equivalent to a diagonal matrix).
+    If $A$ is a real symmetric matrix, there is a real orthogonal matrix $P$ such that 
+    that $P^{-1}AP$ is diagonal.
+\end{corollary}
+
+\begin{definition}
+    Let $V$ be a finite dimensional inner product space. Let $T:V \rightarrow V$ be
+    a linear operator on V. We say that $T$ is normal if it commutes with its adjoint: 
+    \begin{equation*}
+        TT^* = T^*T
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lem2}
+    Let V be a finite dimensional complex inner product space and $T:V\rightarrow V$
+    a normal linear operator. Then if $v \in V$ is an eigenvector of $T$ corresponding to
+    the eigenvalue $\lambda$, then it is also an eigenvector of $T^*$ corresponding to the
+    eigenvalue $\overline{\lambda}$. That is for $v \in V$,
+    \begin{equation*}
+        T(v) = \lambda v \Rightarrow T^*(v) = \overline{\lambda} v
+    \end{equation*}
+\end{lemma}
+
+\begin{lemma}\label{lem3}
+    Let V be a finite dimensional complex inner product space and $T:V\rightarrow V$
+    any linear operator. Then $V$ has an orthonormal basis $\mathcal{B}$ such that matrix
+    $[T]_\mathcal{B}$ is upper triangular. 
+\end{lemma}
+
+\begin{theorem}
+    A linear operator on a finite dimensional complex inner product space is orthogonally
+    diagonalizable if and only if it is normal. \\
+    (proof uses lemma \ref{lem2} and \ref{lem3})
+\end{theorem}
+        
+
 \subsection{Unitary Operator}
 
 \begin{theorem}

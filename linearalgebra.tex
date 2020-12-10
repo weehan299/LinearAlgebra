@@ -21,10 +21,13 @@
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+
 \numberwithin{theorem}{subsection} % important bit
 \numberwithin{definition}{subsection} % important bit
+\numberwithin{proposition}{subsection} % important bit
 
 \begin{document}
 \title{\Large{\textbf{Linear Algebra: Map of theorems}}}
@@ -177,7 +180,7 @@ orthonomal basis of eigenvectors for $T$.
     \end{equation*}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{selfadjointrealandorthogonal}
     (p. 312)
     A self-adjoint linear operator $T$ on a finite dimensional inner product space V.Then
     all eigenvalues of $T$ is real. And the eigenvectors associated with the distinct
@@ -199,7 +202,7 @@ orthonomal basis of eigenvectors for $T$.
     invariant under T. Then $W^\perp$ is invariant under $T^*$
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem}\label{orthgonallydiagonalizable}
     Let $V$ be a finite dimensional inner product space (complex or real). Let $T:V
     \rightarrow V$ be a self adjoint linear operator. $T$ is orthgonally diagonalizable if
     and only if it is self-adjoint. \\
@@ -286,6 +289,97 @@ a unitary matrix.
     positive entries on the main diagonal. Let $U(n)$ be a group of unitary matrices. For each $B$ in $GL(n)$ there exists unique matrices $N$ and $U$ such that $N \in
     T^+(n)$ and $U \in U(n)$.
 \end{corollary}
+
+
+\section{Operators on Inner Product Spaces}
+Let $\mathcal{L}(V;V)$ denote the space of all linear operators from V to V. \\
+Let $\mathcal{F}(V,V,\mathbb{F})$ denote the space of all forms on V. 
+
+\subsection{Forms on Inner Product Spaces}
+
+\begin{definition}
+    A sesquilinear form on a vector space $V$ over $\mathbb{F}$ is a function $f: V \times
+    V \rightarrow \mathbb{F}$ such that
+    \begin{eqnarray*}
+        (a) \quad f(c\alpha + \beta, \gamma) = cf(\alpha, \gamma) + f(\beta, \gamma) \\
+        (b) \quad f(\alpha, c\beta + \gamma) = \overline{c}f(\alpha, \beta) + f(\alpha, \gamma)
+    \end{eqnarray*}
+\end{definition}
+
+\begin{theorem}
+    (p. 320)
+    Let V be a finite dimensional inner product space and $f$ a form on $V$. Then
+    \begin{enumerate}
+        \item If $f \in \mathcal{F}(V,V,\mathbb{F})$, then there exists a unique linear
+            operator $T_f: V \rightarrow V$ such that 
+            \begin{equation*}
+                f(\alpha, \beta) = \innerproduct{T_f \alpha, \beta} \quad 
+                \forall \alpha, \beta \in V
+            \end{equation*}
+        \item The map $\phi: \mathcal{F}(V,V,\mathbb{F}) \rightarrow \mathcal{L}(V;V)$
+            defined by $\phi(f) := T_f$ for all $f \in \mathcal{F}(V,V,\mathbb{F})$ is an
+            isomorphism of vector spaces
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    If $f$ is a form and $\mathcal{B} = \{\alpha_1, ..., \alpha_n\}$ an arbitrary ordered
+    basis of V, the matrix A with entries
+        \begin{equation*}
+            A_{ij} = f(\alpha_j, \alpha_i)
+        \end{equation*}
+    is called the matrix of $f$ in the ordered basis of $\mathcal{B}$
+\end{definition}
+
+\begin{proposition} let $V$ be a finite dimensional inner product space over field $\mathbb{F}$
+    and $f$ is a form. If $\mathcal{B}$ is an orthonormal basis of $V$, then $[f]_\mathcal{B}
+    = [T_f]_\mathcal{B}$. \\
+    (note that this lemma does not work if basis is not orthonormal)
+\end{proposition}
+
+\begin{theorem}
+    Let f be a form on a finite dimensional complex inner product space V. Then there is
+    an orthonormal basis for $V$ in which the matrix is upper-triangular. 
+
+    (note that this theorem uses the fact that $\mathcal{F}(V,V,\mathbb{F})$ is isomorphic
+    to $\mathcal{L}(V;V)$, which allows us to transfer the result of lemma \ref{lem3})
+\end{theorem}
+
+
+\begin{definition}
+    A form $f$ on a real or complex vector space $V$ is called \textbf{Hermitian} if 
+    \begin{equation*}
+        f(\alpha,\beta) = \overline{f(\beta, \alpha)}
+    \end{equation*}
+\end{definition}
+
+\begin{proposition}
+    Let $f$ be a form on complex inner product space. $f$ is Hermitian if and only if $T_f$ is
+    self-adjoint.
+\end{proposition}
+
+\begin{theorem}
+    Let $V$ be a complex vector space and $f$ a form on $V$ such that $f(\alpha, \alpha)$
+    is real for every $\alpha \in V$. Then $f$ is Hermitian.
+\end{theorem}
+
+\begin{corollary}
+    Let $T$ be a linear operator on a complex finite dimensional inner product space $V$.
+    Then $T$ is self-adjoint if and only if $\innerproduct{T\alpha, \alpha}$ is real for
+    every $\alpha \in V$.
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Principle Axis Theorem: }
+    For every Hermitian form $f$ on a finite dimensional inner product space $V$, there is
+    an orthonormal basis in which $f$ is represented by a diagonal matrix with real
+    entries.
+
+    (Proof of this theorem uses results from theorem \ref{orthgonallydiagonalizable} and
+    \ref{selfadjointrealandorthogonal})
+\end{theorem}
+
+
 
 
 

@@ -44,7 +44,7 @@
 \makeatother
 
 
-\section{Bilinear Forms and Inner Product}
+\section{Inner Product Introduction}
 
 
 \subsection{Vector inequalities}
@@ -379,9 +379,81 @@ Let $\mathcal{F}(V,V,\mathbb{F})$ denote the space of all forms on V.
     \ref{selfadjointrealandorthogonal})
 \end{theorem}
 
+\pagebreak
 
+\section{Bilinear Forms}
+Let $L(V,V;\mathbb{F})$ denote the space of all bilinear forms.
 
+\subsection{Bilinear Forms Introduction}
 
+\begin{definition}
+    let V be a vector space over the field $F$. A bilinear form on $V$ is a function $f$,
+    which assigns to each ordered pair of vectors $\alpha, \beta$ in $V$ a scalar
+    $f(\alpha,\beta)$ in $F$, and which satisfies
+    \begin{eqnarray*}
+        (a) \quad f(c\alpha + \beta, \gamma) = cf(\alpha, \gamma) + f(\beta, \gamma) \\
+        (b) \quad f(\alpha, c\beta + \gamma) = cf(\alpha, \beta) + f(\alpha, \gamma)
+    \end{eqnarray*}
+\end{definition}
+
+\begin{definition}
+    let $V$ be a finite-dimensional vector space and let $\mathcal{B}
+    = {\alpha_1,...,\alpha_2}$ be an ordered basis for $V$. If $f$ is a bilinear form on
+    $V$, the \textbf{matrix of $f$ in the ordered basis} $\mathcal{B}$ is the $n \times n$
+    matrix $A$ with entries $A_{ij} = f(\alpha_i, \alpha_j)$. We will denote this matrix
+    by $[f]_\mathcal{B}$
+\end{definition}
+
+\begin{theorem}
+    let $V$ be a finite-dimensional vector space over the field $\mathbb{F}$. For each
+    ordered basis $\mathcal{B}$ of $V$, the function which associates each bilinear form
+    on $V$ its matrix in the ordered basis $\mathcal{B}$ is an isomorphism. i.e. The map
+    \begin{equation*}
+        \phi : L(V,V,\mathbb{F}) \rightarrow M_n(\mathbb{F})
+    \end{equation*}
+    is an isomorphism.
+\end{theorem}
+
+\begin{corollary}
+    If $\mathcal{B} = \{\alpha_1,...\alpha_n\}$ is an ordered basis for $V$, and $B*
+    = \{L_1,...,L_n\}$ is the dual basis for $V^*$, then the $n^2$ bilinear forms
+        \begin{equation*}
+            f_{ij}(\alpha, \beta) = L_i(\alpha)L_j(\beta)
+        \end{equation*}
+    form a basis for the space $L(V,V,\mathbb{F})$ and $dim(L(V,V,\mathbb{F})) = n^2$.
+\end{corollary}
+    
+\begin{theorem}
+    We denote $L_f(\alpha)$ as the bilinear form that fixes $\alpha$ hence becoming
+    a linear functional on any $\beta$ in $V$. We denote $R_f(\beta)$ similarly but fixing
+    $\beta$. 
+
+    Let $f$ be a bilinear form on the finite-dimensional vector space $V$. Let $L_f$ and
+    $R_f$ be the linear transformation from $V$ to $V^*$ defined by $(L_f\alpha)(\beta)
+    = f(\alpha, \beta) = (R_f\beta)(\alpha)$. Then $\text{rank }(R_f) = \text{rank }(L_f)$.
+\end{theorem}
+
+\begin{definition}
+    if $f$ is a bilinear form on the finite-dimensional space $V$, the \textbf{rank} of
+    $f$ is the integer $r = \text{rank }(L_f) = \text{rank }(R_f)$.
+\end{definition}
+
+\begin{corollary}\label{rankbilinear}
+    If $f$ is a bilinear form on the n-dimensional vector space $V$, the following are
+    equivalent: 
+    \begin{enumerate}
+        \item rank $(f) = n$.
+        \item For each non zero $\alpha$ in $V$, there is a $\beta$ in $V$ such that
+            $f(\alpha, \beta) \neq 0$
+        \item For each non zero $\beta$ in $V$, there is a $\alpha$ in $V$ such that
+            $f(\alpha, \beta) \neq 0$
+    \end{enumerate}
+\end{corollary}
+
+\begin{definition}
+    A biliear form $f$ on a vector space $V$ is called \textbf{non-degenerate} (or
+    \textbf{non-singular}) if it satisfies (2) and (3) of corollary \ref{rankbilinear}.
+\end{definition}
 
 
 
